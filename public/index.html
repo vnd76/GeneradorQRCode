@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de QR</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Código QR</h1>
+    <p class="sub">Genera un código QR con fecha de validez, o comprueba si uno ya generado sigue vigente.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="generar">Generar</button>
+      <button class="tab-btn" data-tab="verificar">Verificar</button>
+    </div>
+
+    <div class="panel active" id="panel-generar">
+
+      <label for="text-input">Contenido</label>
+      <input type="text" id="text-input" placeholder="https://ejemplo.com" autocomplete="off">
+
+      <div class="row">
+        <div class="field">
+          <label for="size-select">Tamaño</label>
+          <select id="size-select">
+            <option value="180">180 x 180</option>
+            <option value="256" selected>256 x 256</option>
+            <option value="320">320 x 320</option>
+            <option value="400">400 x 400</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ec-select">Corrección de errores</label>
+          <select id="ec-select">
+            <option value="L">Baja (L)</option>
+            <option value="M" selected>Media (M)</option>
+            <option value="Q">Alta (Q)</option>
+            <option value="H">Máxima (H)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="validity-amount">Válido por</label>
+          <input type="text" id="validity-amount" placeholder="Ej. 30" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="validity-unit">Unidad</label>
+          <select id="validity-unit">
+            <option value="dias" selected>Días</option>
+            <option value="meses">Meses</option>
+            <option value="anios">Años</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="generate-btn">Generar QR</button>
+
+      <div class="result" id="result">
+        <div id="qrcode"></div>
+        <p class="validity-note" id="validity-note"></p>
+        <br>
+        <a href="#" class="download" id="download-link" download="codigo-qr.png">Descargar como PNG</a>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-verificar">
+      <label for="verify-id-input">Id del QR</label>
+      <input type="text" id="verify-id-input" placeholder="Ej. TX-f9OVaUw" autocomplete="off">
+      <button id="verify-btn">Verificar</button>
+      <p class="verify-error" id="verify-error"></p>
+      <div class="status-card" id="status-card">
+        <span class="status-badge" id="status-badge"></span>
+        <div id="status-qr"></div>
+        <div class="status-row">Contenido: <span id="status-contenido"></span></div>
+        <div class="status-row" id="status-url"></div>
+        <div class="status-row">Creado: <span id="status-creado"></span></div>
+        <div class="status-row">Expira: <span id="status-expira"></span></div>
+        <div class="status-row">Quedan: <span id="status-restante"></span></div>
+        <div class="status-row">Integridad: <span id="status-integridad"></span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js">
+  </script>
+
+</body>
+
+</html>

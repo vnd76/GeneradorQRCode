@@ -1,0 +1,7 @@
+node_modules/
+.env
+data/qrs.json
+uploads/*
+tmp/*
+!uploads/.gitkeep
+!tmp/.gitkeep
