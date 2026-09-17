@@ -56,7 +56,10 @@ Servidor corriendo en http://localhost:3000
    - Crea un registro con los datos del QR (id, contenido, fechas, etc.).
    - Lo firma con HMAC (detecta si el archivo es editado a mano después).
    - Guarda el registro en data/qrs.json.
-   - Genera el QR real, que genera un enlace propio que sirve como túnel (para controlar la expiración) en: http://localhost:3000/v/ID 
+   - Genera el QR real, que genera un enlace propio que sirve como túnel (para controlar la expiración) en:
+```
+     http://localhost:3000/v/ID
+```
 3. Devuelve la imagen del QR y da la opción de descargarla.
 
 #### Verificar
