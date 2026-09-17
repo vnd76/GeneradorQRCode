@@ -55,7 +55,7 @@ Servidor corriendo en http://localhost:3000
    -Calcula la fecha de expiración a partir de la fecha de creación y la cantidad de validez introducida.
    - Crea un registro con los datos del QR (id, contenido, fechas, etc.).
    - Lo firma con HMAC (detecta si el archivo es editado a mano después).
-   - Guarda el registro en data/qrs.json.
+   - Guarda el registro en _data/qrs.json_.
    - Genera el QR real, que genera un enlace propio que sirve como túnel (para controlar la expiración) en:
 ```
      http://localhost:3000/v/ID
@@ -66,7 +66,7 @@ Servidor corriendo en http://localhost:3000
 
 1. Se confirma o escribe un id ya generado.
 2. Al hacer click en verificar:
-   - Busca el registro en data/qrs.json.
+   - Busca el registro en _data/qrs.json_.
    - Recalcula la firma y la compara con la ya guardada: si no coinciden, el archivo ha sido manipulado.
    - Compara las fechas para decidir si el código ha expirado.
    - Regenera la imagen del QR y arma la URL de verificación para pruebas.  
