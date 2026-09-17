@@ -125,7 +125,7 @@ Server running in http://localhost:3000
 #### Generate
 
 1. The user enters the URL and selects the size, error correction and validity of the QR code.
-2. Once you click generate:
+2. Once the user clicks "generate":
    - A unique id is generated.
    - The expiration date is calculated based on the creation date and the selected validity period.
    - A record with the QR code's content (id, dates, etc.) is created.
@@ -140,7 +140,7 @@ Server running in http://localhost:3000
 #### Verify
 
 1. The user enters an id from an already existing QR code.
-2. When the user clicks on verify:
+2. When the user clicks on "verify":
    - The app searches for the record in _data/qrs.json_.
    - The signature is recalculated and compared to the one that was already stored: if it doesn't, the file was manually modified.
    - The dates are compared to determine whether the QR code has expired.
