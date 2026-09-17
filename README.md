@@ -19,7 +19,7 @@ Lee el archivo _package.json_ y descarga los archivos necesarios dentro de una c
 Ejecutamos el siguiente comando:
 
 ```
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+node -e "console.record(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
 Ahora crearemos un archivo .env e insertaremos el resultado del comando aquí.
@@ -76,7 +76,7 @@ Servidor corriendo en http://localhost:3000
 
 ### Description - English
 
-Simple app to generate QR codes from a link, allows the user to choose the size, error correction and validity in days, months or years. There's also a tab that has the option to verify a QR from its id.
+Simple app to generate QR codes from a URL. Allows the user to choose the size, error correction and validity in days, months or years. There's also a tab that allows users to verify a QR from its id.
 
 ---
 ### Steps to follow
@@ -87,32 +87,32 @@ Simple app to generate QR codes from a link, allows the user to choose the size,
 npm install
 ```
 
-Reads _package.json_ and downloads the necessary files inside the folder _node_modules_.
+This command reads _package.json_ and downloads the required dependencies into the _node_modules_ folder.
 
-#### 2. Create a secret password.
+#### 2. Create a secret key.
 
 Run the following command:
 
 ```
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+node -e "console.record(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
-We create the file .env and add the result of the previous command here.
+Then, create the file .env and add the result of the previous command here.
 
 ```
-QR_SECRET=GENERATED_PASSWORD_HERE
+QR_SECRET=GENERATED_KEY_HERE
 ```
 
-This file is important for the server to work, since it signs each QR (authenticity).
+This file is important for the server to work, as it signs each QR code (authenticity).
 
 #### 3. Start the server.
 
-Run in terminal:
+Run the following command:
 
 ```
 node server.js
 ```
-And you should see: 
+You should see: 
 
 ```
 Server running in http://localhost:3000
@@ -120,29 +120,29 @@ Server running in http://localhost:3000
 
 ---
 
-### Functionalities
+### Features
 
 #### Generate
 
-1. The user writes the URL and selects the size, error correction and validity of the QR code.
+1. The user enters the URL and selects the size, error correction and validity of the QR code.
 2. Once you click generate:
-   - Creates an unique id.
-   - Calculates the expire date from the creation date and validity introduced.
-   - Creates a log with the QR code's content (id, dates, etc.).
-   - Signs with HMAC (so it can detect if the log was edited manually).
-   - Saves this log in _data/qrs.json_.
-   - Generates the QR code that has its own link (to control the expiration date) in:
+   - A unique id is generated.
+   - The expiration date is calculated based on the creation date and the selected validity period.
+   - A record with the QR code's content (id, dates, etc.) is created.
+   - The record is signed with HMAC (so it can detect if it was edited manually).
+   - This record is saved in _data/qrs.json_.
+   - The QR code is generated with its own URL (to control the expiration date):
 ```
      http://localhost:3000/v/ID
 ```
-3. It returns an image of the QR code and has the option to download it.
+3. The QR code image is displayed with an option to download it.
 
 #### Verify
 
-1. Insert an id that was already generated.
-2. When you click on verify:
-   - Search the  _data/qrs.json_.
-   - Recalcula la firma y la compara con la ya guardada: si no coinciden, el archivo ha sido manipulado.
-   - Compara las fechas para decidir si el código ha expirado.
-   - Regenera la imagen del QR y arma la URL de verificación para pruebas.  
-4. Se muestran los datos del QR y un mensaje que nos indica si el código es válido o si ha expirado.
+1. The user enters an id from an already existing QR code.
+2. When the user clicks on verify:
+   - The app searches for the record in _data/qrs.json_.
+   - The signature is recalculated and compared to the one that was already stored: if it doesn't, the file was manually modified.
+   - The dates are compared to determine whether the QR code has expired.
+   - The QR code image is regenerated and the verification URL is generated for testing.
+3. The QR code info is displayed along with a message indicating whether the code is valid or expired.
