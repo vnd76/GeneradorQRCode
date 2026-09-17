@@ -1,7 +1,7 @@
 # GeneradorQRCode
 
 ### Descripción - Español
-Aplicación sencilla que genera códigos QR a partir de un enlace, le permite al usuario elegir el tamaño, corrección de errores y validez en días, meses o años. También existe una pestaña para verificar la validez de un QR a través de su id.
+Aplicación sencilla que genera códigos QR a partir de un enlace, le permite al usuario elegir el tamaño, corrección de errores y validez en días, meses o años. También existe una pestaña para verificar la validez de un código QR a través de su id.
 
 ---
 ### Pasos para Ejecutar
@@ -22,7 +22,7 @@ Ejecutamos el siguiente comando:
 node -e "console.record(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
-Ahora crearemos un archivo .env e insertaremos el resultado del comando aquí.
+Ahora crearemos un archivo **.env** e insertaremos el resultado del comando aquí.
 
 ```
 QR_SECRET=CLAVE_GENERADA_AQUI
@@ -97,7 +97,7 @@ Run the following command:
 node -e "console.record(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
-Then, create the file .env and add the result of the previous command here.
+Then, create the file **.env** and add the result of the previous command here.
 
 ```
 QR_SECRET=GENERATED_KEY_HERE
