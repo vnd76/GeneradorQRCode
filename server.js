@@ -26,7 +26,7 @@ function guardarDB(db) {
 const express = require('express');
 const QRCode = require('qrcode');
 const app = express();
-const PORT = 3006;
+const PORT = 3000;
 
 app.use(express.json());
 app.use(express.static('public'));
