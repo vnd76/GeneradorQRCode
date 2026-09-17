@@ -51,22 +51,22 @@ Servidor corriendo en http://localhost:3000
 
 1. El usuario escribe la URL y selecciona el tamaño, la corrección de errores y la validez del QR.
 2. Al hacer click en generar:
-   -Genera un id único.
+   - Genera un id único.
    -Calcula la fecha de expiración a partir de la fecha de creación y la cantidad de validez introducida.
-   -Crea un registro con los datos del QR (id, contenido, fechas, etc.).
-   -Lo firma con HMAC (detecta si el archivo es editado a mano después).
-   -Guarda el registro en data/qrs.json.
-   -Genera el QR real, que genera un enlace propio que sirve como túnel (para controlar la expiración) en: http://localhost:3000/v/ID 
+   - Crea un registro con los datos del QR (id, contenido, fechas, etc.).
+   - Lo firma con HMAC (detecta si el archivo es editado a mano después).
+   - Guarda el registro en data/qrs.json.
+   - Genera el QR real, que genera un enlace propio que sirve como túnel (para controlar la expiración) en: http://localhost:3000/v/ID 
 3. Devuelve la imagen del QR y da la opción de descargarla.
 
 #### Verificar
 
 1. Se confirma o escribe un id ya generado.
 2. Al hacer click en verificar:
-   -Busca el registro en data/qrs.json.
-   -Recalcula la firma y la compara con la ya guardada: si no coinciden, el archivo ha sido manipulado.
-   -Compara las fechas para decidir si el código ha expirado.
-   -Regenera la imagen del QR y arma la URL de verificación para pruebas.  
+   - Busca el registro en data/qrs.json.
+   - Recalcula la firma y la compara con la ya guardada: si no coinciden, el archivo ha sido manipulado.
+   - Compara las fechas para decidir si el código ha expirado.
+   - Regenera la imagen del QR y arma la URL de verificación para pruebas.  
 4. Se muestran los datos del QR y un mensaje que nos indica si el código es válido o si ha expirado.
 
 
