@@ -52,7 +52,7 @@ Servidor corriendo en http://localhost:3000
 1. El usuario escribe la URL y selecciona el tamaño, la corrección de errores y la validez del QR.
 2. Al hacer click en generar:
    - Genera un id único.
-   -Calcula la fecha de expiración a partir de la fecha de creación y la cantidad de validez introducida.
+   - Calcula la fecha de expiración a partir de la fecha de creación y la cantidad de validez introducida.
    - Crea un registro con los datos del QR (id, contenido, fechas, etc.).
    - Lo firma con HMAC (detecta si el archivo es editado a mano después).
    - Guarda el registro en _data/qrs.json_.
