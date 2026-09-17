@@ -107,7 +107,7 @@ This file is important for the server to work, as it signs each QR code (authent
 
 #### 3. Start the server.
 
-Run the following command:
+Run:
 
 ```
 node server.js
